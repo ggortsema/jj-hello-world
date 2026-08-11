@@ -1,0 +1,234 @@
+# =============================================================================
+# Python / uv
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging / build output
+build/
+dist/
+sdist/
+wheels/
+*.egg-info/
+.eggs/
+*.egg
+pip-wheel-metadata/
+
+# uv / local Python tooling
+.python-version.local
+
+# Test / coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Type checker / linter caches
+.mypy_cache/
+.pyright/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# =============================================================================
+# Secrets / local environment
+# =============================================================================
+
+# Environment files may contain credentials or machine-specific configuration.
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# Common secret / credential files
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.keystore
+*.token
+*.secret
+*.secrets
+secrets/
+.secret/
+.credentials/
+credentials/
+
+# Local configuration overrides
+*.local.toml
+*.local.yaml
+*.local.yml
+*.local.json
+config.local.*
+settings.local.*
+
+# direnv
+.envrc
+.direnv/
+
+# AWS / cloud / auth local artifacts if copied into a project
+.aws/
+.gcloud/
+.azure/
+
+# Terraform local state and sensitive variable files
+.terraform/
+.terraform.lock.hcl.local
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ansible / Vault-style local secrets
+vault-password*
+.vault_pass*
+*.vault-password
+
+
+# =============================================================================
+# IntelliJ IDEA / JetBrains
+# =============================================================================
+
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# JetBrains local data
+.idea_modules/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+
+# =============================================================================
+# Visual Studio Code
+# =============================================================================
+
+.vscode/
+
+# If you later want to share selected VS Code settings, replace the rule above
+# with explicit exceptions such as:
+# !.vscode/settings.json
+# !.vscode/extensions.json
+
+
+# =============================================================================
+# macOS
+# =============================================================================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+
+# =============================================================================
+# Windows / Linux editor and filesystem noise
+# =============================================================================
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*~
+.nfs*
+
+
+# =============================================================================
+# Logs / runtime files
+# =============================================================================
+
+*.log
+logs/
+*.pid
+*.pid.lock
+*.sock
+tmp/
+temp/
+.cache/
+
+
+# =============================================================================
+# Databases / local runtime state
+# =============================================================================
+
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+
+
+# =============================================================================
+# Local development tooling
+# =============================================================================
+
+# Coverage/debug/profiling output
+.prof/
+*.prof
+*.lprof
+
+# Local task/tool artifacts
+.local/
+.local-data/
+scratch/
+sandbox/
+
+# Docker Compose local overrides
+docker-compose.override.yml
+compose.override.yml
+
+
+# =============================================================================
+# Project-specific JJ local state
+# =============================================================================
+
+# Keep machine/user-specific JJ configuration out of source control if a local
+# copy is ever placed inside one of these repositories.
+jj-local.toml
+jj-plugins.local.toml
+.jj/

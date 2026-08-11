@@ -1,0 +1,56 @@
+[project]
+name = "jj-hello-world"
+version = "0.1.0"
+description = "Reference CLI plugin for jj-core."
+readme = "README.md"
+authors = [
+    { name = "Grant Gortsema", email = "grant.gortsema@gmail.com" },
+]
+requires-python = ">=3.12"
+keywords = ["jj", "plugin", "cli", "example"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "jj-core>=0.1,<1",
+    "typer>=0.16,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/ggortsema/jj-hello-world"
+Repository = "https://github.com/ggortsema/jj-hello-world"
+Issues = "https://github.com/ggortsema/jj-hello-world/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3,<10",
+]
+
+[project.scripts]
+jj-hello-world = "jj_hello_world.standalone:main"
+
+[project.entry-points."jj.plugins"]
+hello-world = "jj_hello_world.plugin:plugin"
+
+[build-system]
+requires = ["uv_build>=0.10.0,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "jj_hello_world"
+module-root = "src"
+
+[tool.uv.sources]
+jj-core = { path = "../jj-core", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"

@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout jj-core
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ggortsema/jj-core
+          path: jj-core
+          persist-credentials: false
+
+      - name: Checkout jj-hello-world
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: jj-hello-world
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.11.31"
+          enable-cache: true
+
+      - name: Install Python
+        working-directory: jj-hello-world
+        run: uv python install
+
+      - name: Install and test
+        working-directory: jj-hello-world
+        run: |
+          uv sync --all-groups
+          uv run pytest
+
+      - name: Build distributions
+        working-directory: jj-hello-world
+        run: uv build --no-sources
+
+      - name: Smoke test wheel
+        working-directory: jj-hello-world
+        run: >-
+          uv run --isolated --no-project
+          --with ../jj-core --with dist/*.whl tests/smoke_test.py
+
+      - name: Smoke test source distribution
+        working-directory: jj-hello-world
+        run: >-
+          uv run --isolated --no-project
+          --with ../jj-core --with dist/*.tar.gz tests/smoke_test.py
+
+      - name: Smoke test installed development package
+        working-directory: jj-hello-world
+        run: uv run tests/smoke_test.py

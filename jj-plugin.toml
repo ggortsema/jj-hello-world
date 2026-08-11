@@ -1,0 +1,11 @@
+schema_version = 1
+
+[plugin]
+name = "hello-world"
+distribution = "jj-hello-world"
+version = "0.1.0"
+namespace = "hello-world"
+description = "Reference plugin demonstrating JJ CLI extension."
+
+[compatibility]
+jj_core = ">=0.1,<1"
